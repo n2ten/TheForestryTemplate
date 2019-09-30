@@ -1,0 +1,32 @@
+.nt-quote-form {
+    // line-height:1.2;
+    .nt-quote-input {
+        background: transparent;
+        border: 0px;
+        border-bottom: 1px solid white;
+        padding-left:10px;
+    }
+
+    .quoteName{
+        width:130px;
+    }
+
+    .nt-service-options{
+        display:inline-block;
+    }
+
+    .labelgroup{
+        display:inline-block;
+        label{
+            opacity:0.7;
+            cursor:pointer;
+            display:block;
+            margin-right:10px;
+
+            &.selected{
+                opacity:1;
+                font-weight: bold;
+            }
+        }
+    }
+}

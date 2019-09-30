@@ -1,0 +1,177 @@
+/*
+==========================================
+=======  General form Styling  ===========
+==========================================
+*/
+
+
+// Styling the form
+
+.form-group {
+    position: relative;
+    margin-bottom: 30px;
+
+    label {
+        color: $secondary;
+        opacity: 0.5;
+        cursor: text;
+    }
+
+}
+
+.form-control {
+    background-color: darken(white, 2%);
+    border: 1px solid $secondary;
+    border-radius: 0px;
+    padding: 30px 10px;
+    color: white;
+
+    &:focus {
+        border-color: $brand-primary;
+        box-shadow: none;
+    }
+}
+
+
+/*
+==========================================
+===========  More Specific  ==============
+==========================================
+*/
+
+#mainContactForm {
+    position: relative;
+    border: 1px solid darken(white, 15%);
+    border-top: 7px solid $brand-primary;
+}
+
+.nt-contact-us {
+    padding: 122px 0px;
+    background-image: url('../img/contact-bg.jpg');
+    background-size: cover;
+    position: relative;
+
+    form {
+        position: relative;
+        z-index: 10;
+        max-width: 900px;
+        margin: auto;
+        // padding: 60px 110px;
+        background: $secondary;
+        padding: 60px 35px;
+        // border: 1px solid rgba(255, 255, 255, 0.0);
+        transition: 0.5s;
+        box-shadow: 0px 30px 30px -15px rgba(255, 230, 255, 0.0);
+    }
+
+    // .form-group {}
+}
+
+
+// Darken the bg on focus and undarken on blur
+
+.darkener {
+    #mainContactForm {
+        background-color: lighten($secondary,80%);
+        box-shadow: 0px 30px 30px -35px rgba(255, 230, 255, 0.3);
+        border: 1px solid rgba(white, 0.2);
+        border-top: 7px solid $brand-primary;
+
+    }
+
+
+
+    &:before {
+        content: '';
+        display: block;
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        background: rgba(black, 0.4);
+        left: 0;
+        top: 0;
+        z-index: 5;
+        animation: ntFadeIn 0.6s ease;
+    }
+}
+
+.hidedarkener {
+    form {
+        background-color: rgba(0, 0, 0, 0.9);
+    }
+
+    &:before {
+        animation: ntFadeOut 0.4s ease;
+    }
+}
+
+@keyframes ntFadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes ntFadeOut {
+    from {
+        opacity: 1;
+    }
+
+    to {
+        opacity: 0;
+    }
+}
+
+
+// 
+//  Landing page contact form
+// 
+
+.nt-form-banner {
+    @extend %patternBG;
+    border-top: 1px solid darken(white, 10%);
+    border-bottom: 1px solid darken(white, 10%);
+    padding-top: 80px;
+    padding-bottom: 250px;
+}
+
+.landingContactForm {
+    background: white;
+    margin-top: -200px;
+    padding: 60px 30px;
+}
+
+.nt-signup {
+    position: relative;
+    z-index: 20;
+
+    .form-group label {
+        position: static;
+        color: lighten($secondary,20%);
+        opacity: 1;
+        font-weight:bold;
+    }
+
+    .form-control {
+        color: $secondary;
+        
+        border: 1px solid darken(white,30%);
+    }
+
+    .activated {
+        transform: scale(1);
+        label{
+            color:white;
+        }
+    }
+
+    &.hidedarkener {
+
+        #mainContactForm {
+            background-color: white;
+        }
+    }
+}

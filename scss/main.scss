@@ -1,0 +1,657 @@
+@import './misc/css-vars';
+
+@import './misc/offsets';
+
+
+@mixin button-color {
+    background-color: $brand-primary;
+    border: 2px solid transparent;
+    transition: 0.2s;
+    color: white;
+    text-transform: initial;
+    font-weight: bold;
+    line-height: 1rem;
+
+    &:hover {
+        background-color: #202020;
+        border-color: $brand-primary;
+        color: white;
+    }
+}
+
+
+
+html {
+    scroll-behavior: smooth;
+}
+
+html,
+body,
+p {
+    font-family: $font-body, sans-serif;
+    line-height: 200%;
+}
+
+h1,
+h2,
+h3,
+h4 {
+    font-family: $font-heading, serif;
+    font-weight: bold;
+}
+
+h2,
+h3 {
+    letter-spacing: 0.3px;
+}
+
+h4 {
+    font-size: 40px;
+}
+
+::selection {
+    background-color: $brand-primary;
+    color: black;
+}
+
+img {
+    max-width: 100%;
+}
+
+.bodytext a {
+    text-decoration: underline;
+    color: initial;
+}
+
+.heading {
+    font-size: 50px;
+
+    small {
+        display: block;
+        font-size: 20px;
+    }
+
+}
+
+small {
+    font-size: 60%;
+    opacity: 0.8;
+    letter-spacing: initial;
+
+}
+.main-page{overflow-x:hidden;}
+.heading-smaller {
+    font-size: 25px;
+}
+
+.main-heading-holder {
+    text-align: center;
+    max-width: 800px;
+    margin: auto;
+}
+.page-break{
+    max-width:$max-width;
+    border-bottom:1px solid lighten($secondary, 60%);
+}
+
+.bg-dark {
+    background-color: #000 !important;
+}
+.bg-light {
+    background-color: lighten($secondary, 70%) !important;
+}
+
+.nav .nav-item {
+    font-weight: bold;
+
+    a {
+        color: $secondary;
+    }
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+    background-color: rgba(255, 255, 255, 0.1) !important
+}
+
+.w-100 {
+    width: 100%;
+}
+
+.z-index-20 {
+    z-index: 20;
+    position: relative;
+}
+
+a{
+    color:$secondary;
+    transition:0.2s;
+}
+
+a:hover {
+    text-decoration: none;
+    color:$brand-primary;
+}
+
+.container {
+    max-width:$max-width;
+}
+
+// .nt-container-wider {
+//     max-width: 1600px;
+// }
+
+.nt-main-text {
+    max-width: 825px;
+    margin: auto;
+    text-align: center;
+
+    &:last-child {
+        margin-bottom: 50px;
+    }
+}
+
+//   Styling the buttons
+.btn {
+    border-radius: 0px; 
+    text-decoration: none !important;
+}
+
+.btn.btn-link{
+    padding:5px 0px;
+    color:$secondary;
+    font-weight:bold;
+    transition: 0.2s;
+    position: relative;
+
+    &:before{
+        content:'';
+        display:block;
+        position:absolute;
+        width:100%;
+        height:3px;
+        left:0;
+        bottom:-3px;
+        background-color:$brand-primary;
+        transition:0.2s;
+    }
+    &:hover{
+        color:$brand-primary;
+        &:before{
+            bottom:-8px;
+        }
+    }
+}
+
+.btn-main {
+    padding: 16px 66px;
+    border: 2px solid;
+    box-shadow: 0px !important;
+    @include button-color;
+
+    strong {
+        position: relative;
+    }
+
+    &:hover,
+    &:active,
+    &:focus {
+        background-color: darken($brand-primary, 10%);
+        color: white;
+    }
+
+    &:active {
+        background-color: darken($brand-primary, 15%);
+    }
+
+}
+
+.btn-main-alt {
+    color: white;
+    border-color: #000;
+
+    &:hover {
+        border-color: lighten(#000, 10%);
+        color: lighten(#000, 10%);
+    }
+}
+
+
+.show {
+    opacity: 1 !important;
+
+}
+
+// to top
+#toTop {
+    width: 54px;
+    height: 54px;
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    border-radius: 0px;
+    color: white;
+    background-color: rgba($brand-primary, 0.8);
+    opacity: 0;
+    transform: translatey(20px);
+    transition: opacity 0.3s, transform 0.3s;
+    z-index: 90;
+    transition: 0.2s;
+    @extend %centering;
+
+    &.show {
+        transform: translateY(0);
+    }
+
+    i {
+        font-size: 20px;
+    }
+
+    &:active,
+    &:focus,
+    &:hover {
+        // color: white;
+        background-color: rgba($brand-primary, 1);
+    }
+}
+
+//   Helpers
+
+%mb {
+    margin-bottom: 30px;
+}
+
+
+
+%centering {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+%patternBG{
+    background-size:13%;
+    background-image:url('./../img/patterns/hotel-wallpaper.png');
+}
+
+%borderzExpanded {
+    content: '';
+    display: block;
+    width: 172px;
+    height: 60px;
+    position: absolute;
+    opacity: 0;
+    transform: scalex(0.7);
+    transition: opacity 0.1s, transform 0.4s, 0.2s ease;
+}
+
+// General
+
+.btn-lg {
+    text-transform: initial;
+}
+
+.btn-secondary {
+    color: #fff;
+    background-color: #313233;
+    border-color: #313233;
+    padding: 15px 40px;
+}
+
+.container {
+    position: relative;
+    padding: 0px 30px;
+}
+
+.bodyfont{
+    font-family: $font-body;
+}
+// preloader
+.nt-preloader {
+    opacity: 0.5;
+}
+
+
+
+@import './misc/alert';
+
+@import './components/01.header';
+@import './components/service_blocks';
+
+// @import './components/02.welcome';
+
+@import './components/aboutn2ten';
+
+// @import '03.testimonials';
+
+// @import './components/04.services';
+
+// @import './components/process';
+
+// @import './components/05.rwork';
+
+// @import './components/whychoose';
+
+@import './components/06.contact-us';
+
+// @import './components/08.quote-form';
+
+@import './components/07.footer';
+
+
+
+
+// Media Queries
+
+// @media (min-width:400px) {
+
+
+// }
+
+@media (min-width:992px) {
+    .layout-alt {
+        .landing-text {
+            max-width: calc(60% - 40px);
+            min-height:450px;
+            h1 {
+                font-size: 70px;
+              }
+        }
+
+        .nt-person {
+            right: calc(20% - 150px);
+            max-height: initial;
+        }
+
+        .landing-header {
+            height: 906px;
+
+        }
+
+        .navbar-collapse .navbar-nav .nav-item a {
+            margin-right: 10px !important;
+        }
+
+
+
+
+    }
+
+
+
+    .nt-header .navbar-brand {
+        width: 20% !important;
+
+    }
+
+
+    .brk-header__main-bar {
+        // height: 200px;
+        padding: 30px 0px;
+    }
+
+    .laptop {
+        position: absolute;
+        right: 20px;
+    }
+
+    .btn-quote {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        strong {
+            display: none
+        }
+
+    }
+
+
+
+    .navbar-collapse {
+        background: transparent;
+
+        .navbar-nav {
+            height: 100%;
+            align-items: center;
+
+            .nav-item a {
+                height: 100%;
+                display: block;
+                margin-right: 20px;
+                font-size: 16px;
+            }
+        }
+
+        height:100%;
+        align-items: center;
+    }
+
+    .step-inner {
+        display: block;
+        min-height: 300px;
+    }
+
+    .step-outer {
+        padding: 15px;
+    }
+
+    .step-outer:nth-child(odd) {
+        padding-left: 0px;
+    }
+
+    .step-outer:nth-child(even) {
+        padding-right: 0px;
+    }
+}
+
+
+@media (min-width:1200px) {
+    .layout-alt .ottawabg {
+        width: 60%;
+        height: 100%;
+    }
+
+    .layout-alt {
+
+        .nt-header:not(.scroll) {
+            .navbar {
+                .nav-link {
+                    color: #000;
+
+                    &:before {
+                        background-color: #000;
+                    }
+
+                    &:hover,
+                    &:active,
+                    &:visited {
+                        border: 0px;
+                    }
+
+                }
+            }
+        }
+
+
+
+        .btn-quote {
+            color: #000;
+            border-color: #000;
+        }
+
+        .nt-header.scroll .btn-quote:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .landingContactForm {
+            padding: 60px 200px;
+        }
+    }
+
+    .nt-header {
+        padding: 30px 0px;
+
+        .navbar-brand img,
+        .navbar-brand #svg-logo {
+            max-height: 150px;
+        }
+    }
+
+
+
+    .nt-header .navbar .navbar-nav {
+        justify-content: center;
+    }
+
+    .masthead {
+        height: 932px;
+
+    }
+
+    .borders {
+        transition: 0.3s;
+    }
+
+
+
+    .nt-header.scroll {
+        .dropdown.language {
+            margin-right: 20px;
+        }
+
+        .dropdown-toggle {
+            border: 0px;
+        }
+
+        .btn-quote {
+            padding: 16px 20px;
+
+            &:hover {
+                background-color: lighten($brand-primary, 20%)
+            }
+
+            i {
+                margin: 0px;
+                font-size: 20px;
+            }
+
+            strong {
+                display: none;
+            }
+        }
+
+
+
+        .nt-header>.navbar-nav .nav-link,
+        .layout-alt .nt-header>.navbar-nav .nav-link {
+            color: $secondary !important;
+
+            &:before {
+                @include beforeNavElement;
+            }
+        }
+    }
+
+    .scroll {
+        transition: 0.1s;
+        padding: 10px 0px;
+        position: fixed !important;
+
+        .navbar {
+            padding: 0px 1rem;
+        }
+
+        #rightBorder {
+            transform: translate(-7px, -12px);
+        }
+
+        #leftBorder {
+            transform: translate(7px, 12px);
+        }
+
+        .navbar-brand img,
+        #svg-logo {
+            max-height: 80px !important;
+        }
+
+    }
+
+    .masthead--text {
+        h1 {
+            font-size: 70px;
+
+        }
+
+        p {
+            font-size: 20px;
+        }
+    }
+
+    .nt-overlay .more {
+        top: calc(40% - 75px);
+    }
+
+    .nt-contact-us form {
+        padding: 60px 110px;
+    }
+
+    .nt-social-links {
+        // justify-content: flex-end;
+        justify-content: flex-end;
+        margin-left: 0px;
+    }
+}
+
+@media (min-width: 1600px) {
+    .layout-alt {
+        .nt-person {
+            right: calc(30% - 335px);
+        }
+
+        .navbar-collapse .navbar-nav .nav-item a {
+            margin-right: 20px !important;
+        }
+    }
+
+
+    .btn-quote {
+        strong {
+            display: block
+        }
+    }
+
+    .nt-header .navbar-brand {
+        width: auto !important;
+
+    }
+
+    .navbar-collapse .navbar-nav .nav-item a {
+        margin-right: 45px;
+    }
+
+    .nav-link {
+        padding: .5rem .1rem;
+    }
+
+    .layout-alt .ottawabg {
+        width: 60%;
+    }
+
+    .layout-alt .masthead {
+        max-width: 1920px;
+        margin: auto;
+        height: 100%;
+    }
+
+    .ottawabg {
+        width: 58vw;
+    }
+}

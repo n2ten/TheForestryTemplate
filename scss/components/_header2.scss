@@ -1,0 +1,516 @@
+@mixin beforeNavElement {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 2px;
+    transform: scalex(0);
+    background: var(--brand-primary);
+    bottom: 0;
+    left: 0;
+    transition: 0.2s;
+    position: absolute;
+  }
+  
+  // Logo woosh effect
+  
+  .nt-header {
+    width: 100%;
+    position: absolute;
+    z-index: 12;
+    height: auto;
+    padding: 10px 0px;
+    transition: opacity 0.05s, padding 0.09s;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  
+    .navbar-brand img,
+    .navbar-brand #svg-logo {
+      max-height: 80px;
+      transition: 0.1s;
+    }
+  
+    .navbar-brand {
+      width: 30% !important;
+  
+      svg {
+        max-width: 100%;
+      }
+    }
+  
+    .navbar {
+      width: 100%;
+  
+      .navbar-nav {
+        width: 100%;
+        justify-content: flex-start;
+  
+        &:hover {
+          .nav-link {
+            opacity: 0.3;
+          }
+        }
+      }
+  
+  
+      .nav-link {
+        font-weight: bold;
+        // text-transform: uppercase;
+        margin-right: 10px;
+        color: white;
+        display: block;
+        // font-size:1rem;
+        // font-size: 0.875rem;
+        letter-spacing: 1.2px;
+        position: relative;
+        transition: 0.2s;
+  
+        &:before {
+          @include beforeNavElement;
+        }
+  
+        &:hover {
+          opacity: 1 !important;
+          color: white;
+  
+          &:before {
+            transform: scalex(1);
+          }
+        }
+  
+  
+      }
+    }
+  
+  
+  
+    .active {
+      opacity: 1 !important;
+    }
+  
+    .active:before {
+      transform: scalex(1) !important;
+    }
+  
+  }
+  
+  
+  //   mobile menu trigger
+  
+  
+  .navbar-collapse {
+    background: rgba(0, 0, 0, 0.9);
+  
+    z-index: 99;
+    position: relative;
+  
+    .navbar-nav {
+      padding: 20px 30px;
+    }
+  }
+  
+  
+  
+  .mobile-square {
+    background: rgba(00, 00, 00, .1);
+    width: 48px;
+    height: 48px;
+    @extend %centering;
+    border-radius: 0px;
+  
+    &.burger {
+      border: 2px solid var(--brand-primary);
+      // display:flex !important;
+      justify-content: center;
+      align-items: center;
+  
+      .mobile-burger {
+        width: 100%;
+      }
+  
+      &:hover:not(.activated) {
+        span:before {
+          top: -10px;
+        }
+  
+        span:after {
+          bottom: -10px;
+        }
+      }
+  
+      span {
+        width: 100%;
+        display: block;
+        height: 2px;
+        background: white;
+        position: relative;
+  
+        @mixin burger-bar {
+          content: '';
+          display: block;
+          background-color: white;
+          width: 100%;
+          height: 2px;
+          position: absolute;
+          transition: 0.2s;
+        }
+  
+        &:before {
+          @include burger-bar;
+          top: -7px;
+        }
+  
+        &:after {
+          @include burger-bar;
+          bottom: -7px;
+        }
+  
+      }
+    }
+  
+  }
+  
+  .activated {
+    .mobile-burger {
+  
+      .burger-bars {
+        height: 0px;
+  
+        &:before {
+          transform: rotate(45deg);
+          top: calc(25% - 1px);
+        }
+  
+        &:after {
+          transform: rotate(-45deg);
+          bottom: calc(25% - 1px);
+        }
+      }
+    }
+  
+  
+  }
+  
+  
+  
+  .quote {
+    @include button-color;
+  }
+  
+  
+  // .mobile-header-icon {
+  //   display: block;
+  //   width: 48px;
+  //   height: 48px;
+  //   position: relative;
+  // }
+  
+  
+  .nt-header.scroll {
+    background-color: rgba(0, 0, 0, 0.9);
+    position: fixed;
+  
+  
+  }
+  
+  .goDown {
+    // transform: translateY(-100%);
+    animation: goDown 0.2s forwards;
+    // animation-delay: 1s;
+  }
+  
+  .goUp {
+    // transform: translateY(0);
+    animation: goUp 0.2s forwards;
+    // animation-delay: 1s;
+  }
+  
+  @keyframes goDown {
+    from {
+      // opacity:0;
+      transform: translateY(-100%);
+    }
+  
+    to {
+      // opacity:1;
+      transform: translateY(0);
+    }
+  }
+  
+  @keyframes goUp {
+    from {
+      transform: translateY(0);
+    }
+  
+    to {
+      transform: translateY(-100%);
+    }
+  }
+  
+  // Desktop header nav
+  
+  
+  // Language dropdown
+  [aria-expanded="true"].dropdown-toggle::after {
+    transform: rotate(90deg)
+  }
+  
+  .dropdown.language {
+    margin-right: 30px;
+    transition: 0.2s;
+  
+    .dropdown-toggle {
+      border: 2px solid var(--brand-primary);
+      background: rgba(0, 0, 0, 0.2);
+      color: white;
+      padding: 16px;
+      display: block;
+      line-height: 16px;
+      transition: 0.2s;
+  
+      &:after {
+        transition: 0.1s;
+      }
+  
+      &:hover {
+        background: rgba(0, 0, 0, 0.5);
+        color: rgba(255, 255, 255, 0.8);
+      }
+  
+      &:active {
+        background: rgba(0, 0, 0, 0.7);
+      }
+    }
+  
+    .dropdown-menu {
+      border-radius: 0px;
+      background: rgba(0, 0, 0, 0.8);
+      min-width: auto;
+  
+      .dropdown-item {
+        color: #efefef;
+  
+        &:hover {
+          color: var(--brand-primary);
+          background-color: black;
+        }
+  
+      }
+    }
+  
+  }
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  // Quote and Language
+  .btn-quote {
+    padding: 16px 40px;
+  
+    i {
+      margin-right: 5px;
+    }
+  }
+  
+  
+  // Web Services Banner Ara
+  strong {
+    font-style: initial;
+    font-weight: bold;
+    ;
+  }
+  .home .masthead{
+    min-height:750px;
+  }
+  .masthead{
+    height:350px;
+  }
+  
+  .masthead .container{
+    justify-content: flex-end;
+  }
+  .home .masthead .container{
+    justify-content: center;
+  }
+  
+  .masthead {
+    // padding-top:150px;
+    background-image: url(../img/BannerBG.jpg);
+    background-size: cover;
+    width: 100%;
+    // height: 750px;
+    color: white;
+    border-bottom: 10px solid var(--brand-primary);
+  
+    .container {
+      height: 100%;
+      display: flex;
+      // justify-content: center;
+      flex-direction: column;
+    }
+  
+    .masthead--text {
+      transform: translateY(-50px);
+  
+      h1, h2 {
+        font-size: 60px;
+        color: white;
+        @extend %mb;
+  
+        span {
+          font-weight: 400;
+        }
+  
+      }
+  
+      p {
+        font-size: 16px;
+      }
+    }
+  
+  }
+  
+  
+  
+  /*
+  ======================================================
+  ========== Landing Header alt ========================
+  ======================================================
+  ======================================================
+  */
+  
+  .nt-landing-alt {
+    .nt-header {
+  
+      border-bottom: 0px
+    }
+  
+  
+  
+  
+  }
+  
+  
+  
+  .layout-alt {
+  
+  
+  
+  
+    .landing-text {
+      min-height: 450px;
+      position: relative;
+      z-index: 10;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+  
+      h1 {
+        font-size: 60px;
+      }
+    }
+  
+  
+  
+    .nt-header {
+      z-index: 99;
+    }
+  
+    .nt-header .navbar .navbar-nav {
+      width: 88%;
+    }
+  
+    .btn-quote,
+    .scroll .btn-quote {
+      min-width: 150px;
+      color: white;
+      border-color: $brand-primary;
+  
+      &:hover {
+        background-color: rgba(255, 255, 255, 0.2);
+      }
+    }
+  
+    .backgrounds {
+  
+      background-color: var(--brand-primary);
+    }
+  
+    .landing-header {
+      position: relative;
+      background-color: $brand-primary;
+      // min-height: 750px;
+      // display: flex;
+      // flex-direction: column;
+      // justify-content: center;
+      padding: 134px 20px 50px 20px;
+      color: white;
+      overflow: hidden;
+  
+   
+  
+      .btn {
+        padding: 16px 16px;
+  
+      }
+    }
+  
+    .form-control {
+      background-color: white;
+      border:1px solid white;
+      color: #000 !important;
+  
+      transition: 0.2s;
+  
+      &:focus {
+        box-shadow: 0 0 0 0.2rem rgba($brand-primary, 0.8);
+        background-color:white;
+      }
+    }
+  
+    .ottawabg {
+      width: 100%;
+      object-fit: cover;
+      height: 90%;
+      object-position: center;
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 0;
+    }
+  
+  
+    .nt-person {
+      position: absolute;
+      right: -150px;
+      bottom: 0;
+      max-height: 450px;
+      z-index: 1;
+    }
+  
+  
+  }
+  
+  // Scroll down
+  
+  .scrolldown {
+    position: absolute;
+    bottom: 10px;
+    left: 0;
+    right: 0;
+    display: flex;
+    margin: auto;
+    width: 50px;
+    height: 50px;
+    justify-content: center;
+    z-index: 50;
+  }
+  
+  .nt-pillars{
+    li{
+      padding-bottom:10px;
+    }
+  }
