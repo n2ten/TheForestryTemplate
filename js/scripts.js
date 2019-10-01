@@ -191,7 +191,7 @@ if ($cf) {
     e.preventDefault()
     $cf.classList.add('nt-preloader');
     const whichPage = $cf.classList.contains('landingContactForm') ? 'landing' : 'contact';
-    fetch('../send.php', {
+    fetch('https://n2ten.com/send.php', {
         method: "post",
         headers: {
           "Content-Type": "application/x-www-form-urlencoded",
