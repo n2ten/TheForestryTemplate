@@ -41,8 +41,6 @@
 
 #mainContactForm {
     position: relative;
-    border: 1px solid darken(white, 15%);
-    border-top: 7px solid $brand-primary;
 }
 
 .nt-contact-us {
@@ -71,13 +69,6 @@
 // Darken the bg on focus and undarken on blur
 
 .darkener {
-    #mainContactForm {
-        background-color: lighten($secondary,80%);
-        box-shadow: 0px 30px 30px -35px rgba(255, 230, 255, 0.3);
-        border: 1px solid rgba(white, 0.2);
-        border-top: 7px solid $brand-primary;
-
-    }
 
 
 
@@ -96,9 +87,6 @@
 }
 
 .hidedarkener {
-    form {
-        background-color: rgba(0, 0, 0, 0.9);
-    }
 
     &:before {
         animation: ntFadeOut 0.4s ease;
@@ -130,17 +118,32 @@
 //  Landing page contact form
 // 
 
-.nt-form-banner {
-    @extend %patternBG;
-    border-top: 1px solid darken(white, 10%);
-    border-bottom: 1px solid darken(white, 10%);
-    padding-top: 80px;
-    padding-bottom: 250px;
+// Styling the text next to the form
+#contact {
+    padding:60px 0px;
+    background-image:url('#{$headerimg}');
+
+    &:before {
+        content: '';
+        width: 100%;
+        height: 100%;
+        display: block;
+        background-color: rgba($secondary, 0.85);
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+    }
+}
+
+.contact-text{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .landingContactForm {
-    background: white;
-    margin-top: -200px;
+    background: $secondary;
     padding: 60px 30px;
 }
 
@@ -150,28 +153,29 @@
 
     .form-group label {
         position: static;
-        color: lighten($secondary,20%);
+        color: white;
+        text-transform:uppercase;
         opacity: 1;
-        font-weight:bold;
+        font-weight: bold;
     }
 
     .form-control {
-        color: $secondary;
-        
-        border: 1px solid darken(white,30%);
+        background-color:#3C3C3C;
+        color: white;
     }
 
     .activated {
         transform: scale(1);
-        label{
-            color:white;
+
+        label {
+            color: white;
         }
     }
 
     &.hidedarkener {
-
+        
         #mainContactForm {
-            background-color: white;
+            background-color: $secondary;
         }
     }
 }

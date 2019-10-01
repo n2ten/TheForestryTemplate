@@ -8,7 +8,7 @@
   content: '';
   display: block;
   width: 100%;
-  height: 3px;
+  height: 5px;
   transform: scalex(0);
   background: $brand-primary;
   bottom: 0;
@@ -25,42 +25,25 @@
   z-index: 12;
   height: auto;
   padding: 10px 0px;
-  transition: opacity 0.05s, padding 0.09s;
+  transition: opacity 0.05s, padding 0.09s, 0.4s;
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 
-  // .navbar-brand img,
-  // .navbar-brand #svg-logo {
-  //   max-height: 80px;
-  //   transition: 0.1s;
-  // }
-
-  // .navbar-brand {
-  //   width: 30% !important;
-
-  //   svg {
-  //     max-width: 100%;
-  //   }
-  // }
-
+  &:hover{
+    background-color:rgba(0,0,0,0.2); 
+  }
   .navbar {
     width: 100%;
 
     .navbar-nav {
       width: 100%;
       justify-content: flex-start;
-
-      &:hover {
-        .nav-link {
-          opacity: 0.5;
-        }
-      }
     }
 
 
     .nav-link {
       // text-transform: uppercase;
       margin-right: 10px;
-      color: $secondary;
+      color: white;
       display: block;
       font-weight: bold;
       // font-size:1rem;
@@ -104,7 +87,7 @@
 
 // Header Number
 .header-number{
-  color: $secondary;
+  color:white;
   font-size:25px;
 }
 
@@ -113,7 +96,7 @@
 
 
 .navbar-collapse {
-  background: darken(white, 8%);
+  background: $secondary;
   margin-top:20px;
   z-index: 99;
   position: relative;
@@ -227,9 +210,8 @@
 
 
 .nt-header.scroll {
-  background-color: white;
+  background-color: $secondary;
   position: fixed;
-  border-bottom:1px solid lighten($secondary, 70%);
 }
 
 .goDown {
@@ -371,9 +353,9 @@ strong {
 
   .landing-header {
     position: relative;
-    @extend %patternBG;
-    padding: 134px 20px 50px 20px;
-    color: $secondary;
+    background-image:url('#{$headerimg}');
+    padding: 134px 20px 200px 20px;
+    color: white;
     overflow: hidden;
     .btn {
       padding: 16px 16px;
@@ -382,9 +364,9 @@ strong {
     &:before{
       content:'';
       width: 100%;
-      height:28%;
+      height:100%;
       display: block;
-      background-color:$secondary;
+      background-color:rgba($secondary, 0.85);
       position: absolute;
       bottom:0;
       left:0;
@@ -401,19 +383,4 @@ strong {
   }
 
 
-}
-
-// Scroll down
-
-.scrolldown {
-  position: absolute;
-  bottom: 10px;
-  left: 0;
-  right: 0;
-  display: flex;
-  margin: auto;
-  width: 50px;
-  height: 50px;
-  justify-content: center;
-  z-index: 50;
 }

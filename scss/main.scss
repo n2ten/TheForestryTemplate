@@ -37,7 +37,8 @@ h2,
 h3,
 h4 {
     font-family: $font-heading, serif;
-    font-weight: bold;
+    font-weight: 700;
+    text-transform: uppercase;
 }
 
 h2,
@@ -69,6 +70,8 @@ img {
     small {
         display: block;
         font-size: 20px;
+        font-weight: bold;
+        text-transform:initial;
     }
 
 }
@@ -79,7 +82,11 @@ small {
     letter-spacing: initial;
 
 }
-.main-page{overflow-x:hidden;}
+
+.main-page {
+    overflow-x: hidden;
+}
+
 .heading-smaller {
     font-size: 25px;
 }
@@ -89,14 +96,16 @@ small {
     max-width: 800px;
     margin: auto;
 }
-.page-break{
-    max-width:$max-width;
-    border-bottom:1px solid lighten($secondary, 60%);
+
+.page-break {
+    max-width: $max-width;
+    border-bottom: 1px solid lighten($secondary, 60%);
 }
 
 .bg-dark {
     background-color: #000 !important;
 }
+
 .bg-light {
     background-color: lighten($secondary, 70%) !important;
 }
@@ -105,7 +114,7 @@ small {
     font-weight: bold;
 
     a {
-        color: $secondary;
+        color: white;
     }
 }
 
@@ -130,18 +139,18 @@ select:-webkit-autofill:focus {
     position: relative;
 }
 
-a{
-    color:$secondary;
-    transition:0.2s;
+a {
+    color: $secondary;
+    transition: 0.2s;
 }
 
 a:hover {
     text-decoration: none;
-    color:$brand-primary;
+    color: $brand-primary;
 }
 
 .container {
-    max-width:$max-width;
+    max-width: $max-width;
 }
 
 // .nt-container-wider {
@@ -160,32 +169,34 @@ a:hover {
 
 //   Styling the buttons
 .btn {
-    border-radius: 0px; 
+    border-radius: 0px;
     text-decoration: none !important;
 }
 
-.btn.btn-link{
-    padding:5px 0px;
-    color:$secondary;
-    font-weight:bold;
+.btn.btn-link {
+    padding: 5px 0px;
+    color: $brand-primary;
+    font-weight: bold;
     transition: 0.2s;
     position: relative;
 
-    &:before{
-        content:'';
-        display:block;
-        position:absolute;
-        width:100%;
-        height:3px;
-        left:0;
-        bottom:-3px;
-        background-color:$brand-primary;
-        transition:0.2s;
+    &:before {
+        content: '';
+        display: block;
+        position: absolute;
+        width: 100%;
+        height: 3px;
+        left: 0;
+        bottom: -3px;
+        background-color: $brand-primary;
+        transition: 0.2s;
     }
-    &:hover{
-        color:$brand-primary;
-        &:before{
-            bottom:-8px;
+
+    &:hover {
+        color: $brand-primary;
+
+        &:before {
+            bottom: -8px;
         }
     }
 }
@@ -276,9 +287,9 @@ a:hover {
     align-items: center;
 }
 
-%patternBG{
-    background-size:13%;
-    background-image:url('./../img/patterns/hotel-wallpaper.png');
+%patternBG {
+    background-size: 13%;
+    background-image: url('./../img/patterns/hotel-wallpaper.png');
 }
 
 %borderzExpanded {
@@ -294,8 +305,40 @@ a:hover {
 
 // General
 
-.btn-lg {
-    text-transform: initial;
+.layout-alt .landing-header .btn.btn-lg {
+    text-transform: uppercase;
+    font-size: 1rem;
+    padding: 17px 46px;
+    font-weight: bold;
+}
+
+
+.btn-primary:not(:disabled):not(.disabled).active,
+.btn-primary:not(:disabled):not(.disabled):active,
+.show>.btn-primary.dropdown-toggle,
+.btn-primary:not(:disabled):not(.disabled).active:focus,
+.btn-primary:not(:disabled):not(.disabled):active:focus,
+.show>.btn-primary.dropdown-toggle:focus {
+    box-shadow: 0 0 0 0.2rem rgba($brand-primary, .5);
+    background-color: $brand-primary;
+    border-color: $brand-primary;
+}
+
+.btn-primary.focus,
+.btn-primary:focus {
+    box-shadow: 0 0 0 0.2rem rgba($brand-primary, .5);
+}
+
+
+.btn-primary {
+    background-color: $brand-primary;
+    border-color: $brand-primary;
+
+}
+
+.btn-primary:hover {
+    background-color: $secondary;
+    border-color: $secondary;
 }
 
 .btn-secondary {
@@ -310,12 +353,17 @@ a:hover {
     padding: 0px 30px;
 }
 
-.bodyfont{
+.bodyfont {
     font-family: $font-body;
 }
+
 // preloader
 .nt-preloader {
     opacity: 0.5;
+}
+
+.subheading{
+    color:#5C5C5C;
 }
 
 
@@ -325,9 +373,8 @@ a:hover {
 @import './components/01.header';
 @import './components/service_blocks';
 
-// @import './components/02.welcome';
+@import './components/02.welcome';
 
-@import './components/aboutn2ten';
 
 // @import '03.testimonials';
 
@@ -359,10 +406,11 @@ a:hover {
     .layout-alt {
         .landing-text {
             max-width: calc(60% - 40px);
-            min-height:450px;
+            min-height: 450px;
+
             h1 {
                 font-size: 70px;
-              }
+            }
         }
 
         .nt-person {
@@ -384,7 +432,16 @@ a:hover {
 
     }
 
-
+    .welcome-text {
+        margin-top: -200px;
+        padding:0px;
+        .bodytext{
+            padding:0px 40px 0px 100px;
+        }
+    }
+    .nt-img{
+        min-height: 450px;
+    }
 
     .nt-header .navbar-brand {
         width: 20% !important;
@@ -450,6 +507,13 @@ a:hover {
     .step-outer:nth-child(even) {
         padding-right: 0px;
     }
+
+    #contact{
+        padding-top:0px;
+    }
+    #mainContactForm{
+        margin-top:-50px;
+    }
 }
 
 
@@ -464,16 +528,20 @@ a:hover {
         .nt-header:not(.scroll) {
             .navbar {
                 .nav-link {
-                    color: #000;
+                    color: white;
 
                     &:before {
-                        background-color: #000;
+                        background-color: $brand-primary;
                     }
 
                     &:hover,
                     &:active,
                     &:visited {
                         border: 0px;
+                    }
+
+                    &:hover {
+                        color: $brand-primary;
                     }
 
                 }
@@ -492,7 +560,7 @@ a:hover {
         }
 
         .landingContactForm {
-            padding: 60px 200px;
+            padding: 60px 30px;
         }
     }
 
@@ -516,9 +584,6 @@ a:hover {
 
     }
 
-    .borders {
-        transition: 0.3s;
-    }
 
 
 
@@ -595,12 +660,14 @@ a:hover {
         }
     }
 
+
+
     .nt-overlay .more {
         top: calc(40% - 75px);
     }
 
     .nt-contact-us form {
-        padding: 60px 110px;
+        padding: 60px 30px;
     }
 
     .nt-social-links {

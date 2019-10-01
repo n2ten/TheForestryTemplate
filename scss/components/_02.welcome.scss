@@ -2,36 +2,20 @@
   position: relative;
   z-index: 2;
   width: 100%;
-  //   &:before{
-  //       content:'';
-  //       display:flex;
-  //       width:calc(100% + 20px);
-  //       left:-10px;
-  //       top:-50px;
-  //       height:100%;
-  //       background-color:#efefef;
-  //       border-radius:4px;
-  //       position: absolute;
-  //       z-index:0;
-  //       -webkit-border-radius:4px;
-  //       -moz-border-radius:4px;
-  //       -ms-border-radius:4px;
-  //       -o-border-radius:4px;
-  // }
 }
 
 .welcome-text {
   background: $secondary;
-  padding: 70px 30px;
-  text-align: center;
-  margin-top: -100px;
+  margin-top: -120px;
   margin-left: 0px;
   margin-right: 0px;
   position: relative;
   z-index: 1;
-  @extend %centering;
-  flex-direction: column;
-
+  color:white;
+  padding:0px;
+  .bodytext{
+    padding: 50px 20px;
+  }
   h3 {
     font-size: 35px;
     @extend %mb;
@@ -42,3 +26,11 @@
   }
 
 }
+
+.nt-img{
+  background-image:url('../img/logs.jpg');
+  min-height: 250px;
+  background-size: cover;
+  background-position: center;
+}
+

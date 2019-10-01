@@ -1,10 +1,12 @@
 :root {
-    --brand-primary: #FA0B44;
-    --secondary: #141414;
+    --brand-primary: #56C644;
+    --secondary: #1D1B19;
 }
 
-$brand-primary: #FA0B44;
-$secondary: #333333;
-$font-heading: 'Playfair Display', serif;
+$brand-primary: #56C644;
+$secondary: #1D1B19;
+$font-heading: 'Montserrat', sans-serif;
 $font-body: 'Montserrat', sans-serif;
 $max-width: 1262px;
+
+$headerimg: '../img/landingbg.jpg'
